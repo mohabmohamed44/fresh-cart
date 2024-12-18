@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Style from "./CategorySlider.module.css";
+import Style from "./CategorySlider.module.scss";
 import Slider from "react-slick";
 import axios from "axios";
 import {Bars} from "react-loader-spinner";

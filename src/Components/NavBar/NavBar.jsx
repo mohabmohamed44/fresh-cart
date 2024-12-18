@@ -2,9 +2,6 @@ import React, { useState, useContext } from "react";
 import { Link,NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/freshcart-logo.svg";
 import { UserContext } from "../../Context/UserContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 export default function NavBar() {
   const { setToken, token } = useContext(UserContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);

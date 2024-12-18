@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { Bars } from "react-loader-spinner";
-import Style from "./ResetPassword.module.css";
+import Style from "./ResetPassword.module.scss";
 
 export default function ResetPassword() {
   const [email, setEmail] = useState(""); 

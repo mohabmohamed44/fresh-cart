@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import Style from "./Cart.module.css";
+import Style from "./Cart.module.scss";
 import { cartContext } from "../../Context/CartContext";
 import ghost from "../../assets/ghost-img.png";
 import { Bars } from "react-loader-spinner";

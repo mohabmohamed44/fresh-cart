@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import Style from "./TemplateName.module.css";
+import Style from "./TemplateName.module.scss";
 export default function TemplateName() {
   return (
     <>

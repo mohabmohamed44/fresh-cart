@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { cartContext } from "../../Context/CartContext"; // Update path as needed
 import toast from "react-hot-toast";
+import Style from "./WishList.module.scss";
 import { Bars } from "react-loader-spinner";
 
 export default function Wishlist() {
@@ -45,7 +46,7 @@ export default function Wishlist() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-medium mb-8 mt-4 text-center text-gray-800">
+      <h1 className={Style.heading}>
         Your Wishlist
       </h1>
       <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6">

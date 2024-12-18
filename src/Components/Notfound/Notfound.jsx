@@ -1,6 +1,6 @@
 import React from "react";
 import notFound from "../../assets/error.svg";
-import Style from "./Notfound.module.css";
+import Style from "./Notfound.module.scss";
 
 export default function Notfound() {
   return (
