@@ -23,7 +23,7 @@ export default function ProductDetails() {
     } else {
       setWishlistProducts([...wishlistProducts, productId]); // Add to wishlist
       addToWishlist(productId);
-      // toast.success("Product added to wishlist!");
+      toast.success("Product added to wishlist!");
     }
   };
 
