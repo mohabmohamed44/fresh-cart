@@ -116,7 +116,7 @@ export function CartContextProvider({ children }) {
         }
       );
       console.log("Added to Wishlist:", res.data);
-      toast.success("Added to Wishlist!");
+      // toast.success("Added to Wishlist!");
       getWishlist();
       return true;
     } catch (err) {
