@@ -58,7 +58,7 @@ export default function Wishlist() {
             <img
               src={product?.imageCover}
               alt={product?.title}
-              className="w-full h-64 object-contain"
+              className={Style.img}
             />
             <div className="p-4">
               <h2 className="font-bold text-lg text-gray-800 mb-2 truncate">

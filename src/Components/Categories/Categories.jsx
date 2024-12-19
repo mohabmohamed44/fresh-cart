@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Style from './Categories.module.scss';
 import { Bars } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 
@@ -27,7 +28,7 @@ export default function Categories() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className={Style.loading}>
         <Bars height={80} width={80} />
       </div>
     );

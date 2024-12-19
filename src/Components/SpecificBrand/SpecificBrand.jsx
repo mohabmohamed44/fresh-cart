@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Bars } from "react-loader-spinner";
 import axios from "axios";
 import { Helmet } from "react-helmet";
+import Style from "./SpecificBrand.module.scss";
 
 export default function SpecifBrand() {
   // State variables to manage brand data and loading state
@@ -69,7 +70,7 @@ export default function SpecifBrand() {
                 />
               </div>
               {/* Brand Info */}
-              <div className="text-center">
+              <div className={Style.centered_content}>
                 <h1 className="text-3xl font-semibold text-gray-800">
                   {specificBrand.name}
                 </h1>

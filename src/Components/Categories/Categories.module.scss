@@ -1,1 +1,17 @@
-.Categories {}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.categories_heading {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing:2px;
+  line-height: 2rem;
+  font-weight: bold;
+  color: #131212;
+}
