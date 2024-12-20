@@ -52,7 +52,7 @@ export default function Categories() {
 
   return (
     <>
-      <h2 className="text-2xl font-semibold text-center mt-12">Categories</h2>
+      <h2 className={Style.categories_heading}>Categories</h2>
       <div className="max-w-screen-lg mx-auto px-4 py-6">
         <div className="flex flex-wrap justify-center gap-4">
           {categories.map((category) => (
