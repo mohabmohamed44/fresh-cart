@@ -188,7 +188,7 @@ export default function Products() {
                   addProductToCart(product._id);
                 }}
               >
-                <i className="fas fa-shopping-cart mr-2"></i>
+                <i className="fas fa-cart-plus mr-2"></i>
                 Add to Cart
               </button>
             </div>
