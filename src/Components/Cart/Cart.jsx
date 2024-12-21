@@ -4,6 +4,7 @@ import { cartContext } from "../../Context/CartContext";
 import ghost from "../../assets/ghost-img.png";
 import { Bars } from "react-loader-spinner";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 export default function Cart() {
   const {
@@ -73,6 +74,13 @@ export default function Cart() {
 
   return (
     <>
+      <Helmet>
+        <title>Cart</title>
+        <meta name="description" content="Cart Page" />
+        <link rel="icon" type="image/svg+xml" href="./src/assets/FrshCart-Icon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charSet="utf-8" />  
+      </Helmet>
       <h2 className="text-3xl text-center mt-12 mb-10">Cart</h2>
       <h2 className="text-3xl text-center mb-10 font-medium">
         Number of Cart Items: {numOfCartItems}

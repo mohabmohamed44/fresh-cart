@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Bars } from "react-loader-spinner";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 // API function to fetch brands
 const fetchBrands = async () => {
@@ -45,24 +46,35 @@ export default function Brands() {
 
   // Main content
   return (
-    <div className="min-h-screen bg-white container mx-auto px-4 py-8">
-      <h2 className="text-3xl text-center mt-12 mb-10">Brands</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-        {brands.map((brand) => (
-          <Link
-            to={`/brands/${brand._id}`}
-            key={brand._id}
-            className="flex flex-col items-center p-4 rounded-lg border shadow-md hover:shadow-lg transition-shadow"
-          >
-            <img
-              src={brand.image}
-              alt={brand.name || "Brand Logo"}
-              className="w-32 h-32 object-contain mb-4"
-            />
-            <span className="text-center font-medium">{brand.name || "Unnamed Brand"}</span>
-          </Link>
-        ))}
+    <>
+      <Helmet>
+        <title>Brands | FreshCart</title>
+        <meta name="description" content="FreshCart - Brands" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="keywords" content="Brands, FreshCart, FreshCart - Brands" />
+        <meta name="author" content="Mohab Mohammed" />
+      </Helmet>
+      <div className="min-h-screen bg-white container mx-auto px-4 py-8">
+        <h2 className="text-3xl text-center mt-12 mb-10">Brands</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          {brands.map((brand) => (
+            <Link
+              to={`/brands/${brand._id}`}
+              key={brand._id}
+              className="flex flex-col items-center p-4 rounded-lg border shadow-md hover:shadow-lg transition-shadow"
+            >
+              <img
+                src={brand.image}
+                alt={brand.name || "Brand Logo"}
+                className="w-32 h-32 object-contain mb-4"
+              />
+              <span className="text-center font-medium">
+                {brand.name || "Unnamed Brand"}
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

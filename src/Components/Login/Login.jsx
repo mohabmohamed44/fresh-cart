@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import * as Yup from "yup";
 import { UserContext } from "../../Context/UserContext";
+import { Helmet } from "react-helmet";
 
 export default function Login() {
   const { setToken } = useContext(UserContext);
@@ -51,6 +52,10 @@ export default function Login() {
   });
 
   return (
+    <>
+    <Helmet>
+      <title>Login</title>
+    </Helmet>
     <div className="min-h-screen pt-5 pb-5 px-4">
       <div className="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-sm">
         <h2 className="text-2xl font-semibold text-gray-800 mb-2 text-center">
@@ -136,5 +141,6 @@ export default function Login() {
         </div>
       </div>
     </div>
+    </>
   );
 }
