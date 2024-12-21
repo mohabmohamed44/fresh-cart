@@ -7,7 +7,7 @@ import axios from "axios";
 
 export default function CategoryProducts() {
   const { categoryId } = useParams();
-  const { getProductsInCustomList } = useContext(cartContext);
+  //const { getProductsInCustomList } = useContext(cartContext);
   const [products, setProducts] = useState([]);
   const [categoryName, setCategoryName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -96,7 +96,7 @@ export default function CategoryProducts() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 object-cover">
             {products.map((product) => (
               <div className="col-span-1" key={product._id}>
                 <ProductCard product={product} showSubcategory={true} />
