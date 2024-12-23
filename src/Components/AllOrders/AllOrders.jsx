@@ -127,7 +127,7 @@ export default function AllOrders() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {orders.map((order, index) => (
+                  {orders?.map((order, index) => (
                     <tr 
                       key={index} 
                       className="hover:bg-gray-50 transition"
@@ -136,11 +136,11 @@ export default function AllOrders() {
                         {order?.cartItems?.map((product) => (
                           <div key={product._id} className='flex items-center mb-2'>
                             <img 
-                              src={product.product.imageCover} 
-                              alt={product.product.title} 
+                              src={product?.product?.imageCover} 
+                              alt={product?.product?.title} 
                               className="w-16 h-16 object-cover mr-4" 
                             />
-                            <p className="font-semibold">{product.product.title}</p>
+                            <p className="font-semibold">{product?.product?.title}</p>
                           </div>
                         ))}
                       </td>
