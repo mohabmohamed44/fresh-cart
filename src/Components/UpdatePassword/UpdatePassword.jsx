@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { Bars } from "react-loader-spinner";
+import { Helmet } from "react-helmet";
 
 export default function UpdatePassword() {
   const [currentPassword, setCurrentPassword] = useState("");
@@ -51,6 +52,10 @@ export default function UpdatePassword() {
   };
 
   return (
+    <>
+    <Helmet>
+      <Helmet>Update Password</Helmet>
+    </Helmet>
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <h2 className="text-2xl font-medium text-center my-6">Update Password</h2>
       <form
@@ -131,5 +136,6 @@ export default function UpdatePassword() {
         </button>
       </form>
     </div>
+    </>
   );
 }

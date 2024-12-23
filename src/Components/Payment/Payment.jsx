@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { Bars } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 // Validation schema
 const PaymentSchema = Yup.object().shape({
@@ -153,6 +154,13 @@ export default function Payment() {
 
   // Render component
   return (
+    <>
+    <Helmet>
+      <title>Payment | FreshCart</title>
+      <meta name="description" content="Payment page for FreshCart" />
+      <meta name="keywords" content="payment, checkout, payment gateway" />
+      <meta name="author" content="Mohab Mohammed" />
+    </Helmet>
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white shadow-2xl rounded-2xl overflow-hidden">
         <div className="bg-green-500 text-white p-6 text-center">
@@ -278,5 +286,6 @@ export default function Payment() {
         </form>
       </div>
     </div>
+    </>
   );
 }

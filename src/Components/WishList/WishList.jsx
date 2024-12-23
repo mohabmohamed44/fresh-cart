@@ -3,6 +3,7 @@ import { cartContext } from "../../Context/CartContext"; // Update path as neede
 import toast from "react-hot-toast";
 import Style from "./WishList.module.scss";
 import { Bars } from "react-loader-spinner";
+import { Helmet } from "react-helmet";
 
 export default function Wishlist() {
   const { wishlistItems, getWishlist, removeFromWishlist } = useContext(cartContext);
@@ -45,6 +46,10 @@ export default function Wishlist() {
   }
 
   return (
+    <>
+    <Helmet>
+      <title>WishList | FreshCart</title>
+    </Helmet>
     <div className="container mx-auto px-4 py-8">
       <h1 className={Style.heading}>
         Your Wishlist
@@ -86,5 +91,6 @@ export default function Wishlist() {
         ))}
       </div>
     </div>
+    </>
   );
 }

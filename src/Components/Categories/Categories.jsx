@@ -3,6 +3,7 @@ import axios from "axios";
 import Style from './Categories.module.scss';
 import { Bars } from "react-loader-spinner";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
@@ -52,6 +53,13 @@ export default function Categories() {
 
   return (
     <>
+      <Helmet>
+          <title>Categories</title>
+          <meta name="description" content="Categories page" />
+          <meta name="keywords" content="Categories, E-commerce" />
+          <meta name="robots" content="index, follow" />
+          <meta name="author" content="Mohab Mohammed" />
+      </Helmet>
       <h2 className={Style.categories_heading}>Categories</h2>
       <div className="max-w-screen-lg mx-auto px-4 py-6">
         <div className="flex flex-wrap justify-center gap-4">

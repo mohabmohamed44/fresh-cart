@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { Bars } from "react-loader-spinner";
 import Style from "./ResetPassword.module.scss";
+import { Helmet } from "react-helmet";
 
 export default function ResetPassword() {
   const [email, setEmail] = useState(""); 
@@ -73,6 +74,8 @@ export default function ResetPassword() {
   };
 
   return (
+    <>
+    <Helmet>ResetPassword</Helmet>
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <h2 className="text-2xl font-semibold mb-6">Reset Password</h2>
       <form
@@ -129,5 +132,6 @@ export default function ResetPassword() {
         </button>
       </form>
     </div>
+    </>
   );
 }

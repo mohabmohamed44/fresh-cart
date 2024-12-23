@@ -1,9 +1,14 @@
 import React from "react";
 import notFound from "../../assets/error.svg";
 import Style from "./Notfound.module.scss";
+import { Helmet } from "react-helmet";
 
 export default function Notfound() {
   return (
+    <>
+    <Helmet>
+      <title>Not Found</title>
+    </Helmet>
     <div className="container mx-auto flex flex-col items-center justify-center min-h-screen text-center">
       <img
         src={notFound}
@@ -21,5 +26,6 @@ export default function Notfound() {
         Back to Home
       </a>
     </div>
+    </>
   );
 }

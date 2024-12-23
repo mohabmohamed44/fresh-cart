@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { toast } from "react-hot-toast";
 import { Bars } from "react-loader-spinner";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function ForgotPassword() {
   const [isResetLinkSent, setIsResetLinkSent] = useState(false);
@@ -39,6 +40,10 @@ export default function ForgotPassword() {
   });
 
   return (
+    <>
+    <Helmet>
+      <title>Forgot Password</title>
+    </Helmet>
     <div className="flex flex-col items-center justify-center min-h-screen  p-4">
       <h2 className="text-2xl font-semibold mb-6">Forgot Password</h2>
       <form
@@ -92,5 +97,6 @@ export default function ForgotPassword() {
         </div>
       )}
     </div>
+    </>
   );
 }

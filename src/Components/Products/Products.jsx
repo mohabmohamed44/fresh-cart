@@ -6,6 +6,7 @@ import ghost from "../../assets/ghost-img.png";
 import { Bars } from "react-loader-spinner";
 import { cartContext } from "../../Context/CartContext";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 // Fetch function to get products
 const fetchProducts = async () => {
@@ -29,7 +30,7 @@ export default function Products() {
       [id]: !prev[id], // toggle the wishlist status for the product
     }));
     // assuming this adds the product to your server-side wishlist
-    addToWishlist(id); 
+    addToWishlist(id);
   };
 
   // Updated useQuery with object syntax
@@ -92,109 +93,121 @@ export default function Products() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-medium mb-8 mt-4 text-center text-gray-800">
-        Our Products
-      </h1>
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6">
-        {products.map((product) => (
-          <div
-            key={product._id}
-            className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group relative"
-            onMouseEnter={() => setHoveredProduct(product._id)}
-            onMouseLeave={() => setHoveredProduct(null)}
-          >
-            {/* Wishlist Heart Icon */}
-            <button
-              onClick={() => toggleWishlist(product._id)}
-              className={`absolute top-4 left-4 z-10 bg-white/80 p-2 rounded-full shadow-md ${
-                wishlist[product._id] ? "bg-red-500 text-white" : "bg-gray-200"
-              }`}
+    <>
+      <Helmet>
+        <title>Products</title>
+        <meta name="description" content="Products Page" />
+        <meta name="keywords" content="products, shopping, online store" />
+        <meta name="author" content="Mohab Mohammed" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Helmet>
+      {/* Product Section */}
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-2xl font-medium mb-8 mt-4 text-center text-gray-800">
+          Our Products
+        </h1>
+        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6">
+          {products.map((product) => (
+            <div
+              key={product._id}
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group relative"
+              onMouseEnter={() => setHoveredProduct(product._id)}
+              onMouseLeave={() => setHoveredProduct(null)}
             >
-              <i
-                className={`fa-regular fa-heart h-5 w-5 transition-colors duration-300 ${
+              {/* Wishlist Heart Icon */}
+              <button
+                onClick={() => toggleWishlist(product._id)}
+                className={`absolute top-4 left-4 z-10 bg-white/80 p-2 rounded-full shadow-md ${
                   wishlist[product._id]
-                    ? "fa-solid text-red-500 hover:text-red-500"
-                    : "fa-regular text-gray-500 hover:text-red-500"
+                    ? "bg-red-500 text-white"
+                    : "bg-gray-200"
                 }`}
-              ></i>
-            </button>
+              >
+                <i
+                  className={`fa-regular fa-heart h-5 w-5 transition-colors duration-300 ${
+                    wishlist[product._id]
+                      ? "fa-solid text-red-500 hover:text-red-500"
+                      : "fa-regular text-gray-500 hover:text-red-500"
+                  }`}
+                ></i>
+              </button>
 
-            <Link
-              to={`/productDetails/${product._id}/${product.category.name}`}
-              className="block"
-            >
-              <div className="relative overflow-hidden h-full">
-                <img
-                  src={product.imageCover}
-                  alt={product.title}
-                  className="w-full h-64 object-contain group-hover:scale-110 transition-transform duration-300"
-                />
-                {product.priceAfterDiscount ? (
-                  <span className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    SALE
-                  </span>
-                ) : null}
-              </div>
+              <Link
+                to={`/productDetails/${product._id}/${product.category.name}`}
+                className="block"
+              >
+                <div className="relative overflow-hidden h-full">
+                  <img
+                    src={product.imageCover}
+                    alt={product.title}
+                    className="w-full h-64 object-contain group-hover:scale-110 transition-transform duration-300"
+                  />
+                  {product.priceAfterDiscount ? (
+                    <span className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                      SALE
+                    </span>
+                  ) : null}
+                </div>
 
-              <div className="p-4">
-                <h2 className="font-bold text-lg text-gray-800 mb-2 truncate">
-                  {product.title.split(" ", 2).join(" ")}
-                </h2>
+                <div className="p-4">
+                  <h2 className="font-bold text-lg text-gray-800 mb-2 truncate">
+                    {product.title.split(" ", 2).join(" ")}
+                  </h2>
 
-                <h3 className="text-sm text-emerald-500 mb-2">
-                  {product.category.name}
-                </h3>
+                  <h3 className="text-sm text-emerald-500 mb-2">
+                    {product.category.name}
+                  </h3>
 
-                <div className="flex justify-between items-center">
-                  <div>
-                    {product.priceAfterDiscount ? (
-                      <div className="flex items-center">
-                        <span className="text-red-500 line-through mr-2 text-sm">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      {product.priceAfterDiscount ? (
+                        <div className="flex items-center">
+                          <span className="text-red-500 line-through mr-2 text-sm">
+                            {product.price} EGP
+                          </span>
+                          <span className="text-green-600 font-bold">
+                            {product.priceAfterDiscount} EGP
+                          </span>
+                        </div>
+                      ) : (
+                        <span className="text-gray-800 font-bold">
                           {product.price} EGP
                         </span>
-                        <span className="text-green-600 font-bold">
-                          {product.priceAfterDiscount} EGP
-                        </span>
-                      </div>
-                    ) : (
-                      <span className="text-gray-800 font-bold">
-                        {product.price} EGP
-                      </span>
-                    )}
-                  </div>
+                      )}
+                    </div>
 
-                  <div className="flex items-center text-yellow-500">
-                    <i className="fas fa-star mr-1"></i>
-                    <span className="text-gray-700">
-                      {product.ratingsAverage}
-                    </span>
+                    <div className="flex items-center text-yellow-500">
+                      <i className="fas fa-star mr-1"></i>
+                      <span className="text-gray-700">
+                        {product.ratingsAverage}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
 
-            {/* Add to Cart Button */}
-            <div
-              className={`absolute inset-x-0 bottom-0 transition-all duration-300 ${
-                hoveredProduct === product._id
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-full opacity-0"
-              }`}
-            >
-              <button
-                className="w-full bg-green-600 text-white py-3 hover:bg-green-700 transition-colors duration-300 flex items-center justify-center space-x-2"
-                onClick={() => {
-                  addProductToCart(product._id);
-                }}
+              {/* Add to Cart Button */}
+              <div
+                className={`absolute inset-x-0 bottom-0 transition-all duration-300 ${
+                  hoveredProduct === product._id
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-full opacity-0"
+                }`}
               >
-                <i className="fas fa-cart-plus mr-2"></i>
-                Add to Cart
-              </button>
+                <button
+                  className="w-full bg-green-600 text-white py-3 hover:bg-green-700 transition-colors duration-300 flex items-center justify-center space-x-2"
+                  onClick={() => {
+                    addProductToCart(product._id);
+                  }}
+                >
+                  <i className="fas fa-cart-plus mr-2"></i>
+                  Add to Cart
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
