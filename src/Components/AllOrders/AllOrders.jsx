@@ -50,7 +50,7 @@ export default function AllOrders() {
   // Loading State
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="min-h-screen flex items-center justify-center ">
         <div className="text-center">
           <div className="flex justify-center mb-4">
             <Package className="animate-bounce text-green-500" size={64} />
@@ -64,7 +64,7 @@ export default function AllOrders() {
   // Error State
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+      <div className="min-h-screen flex items-center justify-center  p-4">
         <div className="bg-white shadow-lg rounded-lg p-8 text-center">
           <Package className="mx-auto mb-4 text-red-500" size={48} />
           <h2 className="text-2xl font-bold text-red-600 mb-4">
@@ -87,7 +87,7 @@ export default function AllOrders() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="bg-white shadow-xl rounded-2xl overflow-hidden">
           {/* Header */}

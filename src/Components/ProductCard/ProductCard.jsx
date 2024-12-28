@@ -63,10 +63,10 @@ export default function ProductCard({ product, showSubcategory }) {
     }, [wishlistItems]);
 
     return (
-        <div className="w-full sm:w-1/2 md:w-1/3 lg:w-full xl:w-full p-2">
+        <div className="w-full lg:w-full xl:w-full p-2">
             <div className="bg-white shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105">
                 <Link to={`/productDetails/${product._id}/${product.category.name}`}>
-                    <img className="w-full h-48 object-cover" src={product.imageCover} alt={product.title} />
+                    <img className="w-full h-48 object-contain" src={product.imageCover} alt={product.title} />
                 </Link>
                 <div className="p-4">
                     <div className="flex justify-between items-center mb-2">
