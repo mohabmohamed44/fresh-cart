@@ -7,7 +7,7 @@ export default function Layout() {
   return (
     <>
       <Navbar />
-      <div className="container py-10 px-3 md:px-2 mx-auto max-w-screen-xl">
+      <div className="container py-10 px-3 md:px-2 mx-auto max-w-screen-xl overflow-x-hidden">
         <Outlet />
       </div>
       <Footer />
