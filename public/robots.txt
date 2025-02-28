@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fresh-cart-ecru-chi.vercel.app/sitemap.xml
