@@ -56,7 +56,7 @@ export default function Login() {
     <Helmet>
       <title>Login</title>
     </Helmet>
-    <div className="min-h-screen pt-5 pb-5 px-4">
+    <div className="min-h-screen pt-5 pb-5 px-4 mx-auto my-auto">
       <div className="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-sm">
         <h2 className="text-2xl font-semibold text-gray-800 mb-2 text-center">
           Login
