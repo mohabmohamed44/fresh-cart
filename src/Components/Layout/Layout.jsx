@@ -16,7 +16,6 @@ export default function Layout() {
   ];
   return (
     <>
-      <main>
         {!hideFooter_Navbar.includes(location.pathname) && <Navbar />}
         <div className="container py-10 px-3 md:px-2 mx-auto max-w-screen-xl">
           <Navbar />
@@ -25,7 +24,6 @@ export default function Layout() {
           </div>
         </div>
         {!hideFooter_Navbar.includes(location.pathname) && <Footer />}
-      </main>
     </>
   );
 }
