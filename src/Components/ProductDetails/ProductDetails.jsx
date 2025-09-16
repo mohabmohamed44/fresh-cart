@@ -98,7 +98,7 @@ export default function ProductDetails() {
   return (
     <>
       <Helmet>
-          <title>ProductDetails</title>
+        <title>ProductDetails</title>
       </Helmet>
       <div className="container mx-auto px-4 py-8">
         {/* Product Details Section */}
@@ -147,14 +147,13 @@ export default function ProductDetails() {
               <p className="text-emerald-500">{productDetails.category.name}</p>
             </div>
             <button
-              className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors duration-300"
+              className="group w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors duration-300"
               onClick={() => {
-                console.log(`Added ${productDetails.title} to cart`);
                 addToCart(productDetails);
                 toast.success("Product added to cart!");
               }}
             >
-              <i className="fas fa-shopping-cart mr-2"></i>
+              <i className="fas fa-shopping-cart mr-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"></i>
               Add to Cart
             </button>
           </div>
@@ -169,7 +168,7 @@ export default function ProductDetails() {
             {relatedProducts.map((product) => (
               <div
                 key={product._id}
-                className="relative group border rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow"
+                className="relative group rounded-lg shadow-lg hover:shadow-xl transition-shadow overflow-hidden"
                 onMouseEnter={() => setHoveredProduct(product._id)}
                 onMouseLeave={() => setHoveredProduct(null)}
               >
@@ -177,15 +176,15 @@ export default function ProductDetails() {
                   to={`/productDetails/${product._id}/${product.category._id}`}
                   className="block"
                 >
-                  <div className="relative">
+                  <div className="relative w-full h-64">
                     {product.imageCover ? (
                       <img
                         src={product.imageCover}
                         alt={product.title || "Product Image"}
-                        className="w-full object-cover h-full rounded"
+                        className="w-full h-full object-cover"
                       />
                     ) : (
-                      <div className="w-full h-40 bg-gray-200 flex items-center justify-center">
+                      <div className="w-full h-full bg-gray-200 flex items-center justify-center">
                         No Image
                       </div>
                     )}
@@ -199,34 +198,28 @@ export default function ProductDetails() {
                         </div>
                       )}
                   </div>
-                  <div className="mt-4 space-y-2">
+                  <div className="p-4 space-y-2 bg-white">
                     <h3 className="text-lg font-semibold text-gray-800">
                       {product.title.split(" ", 2).join(" ")}
                     </h3>
                     <p className="text-gray-600 text-sm">
                       {product.category.name}
                     </p>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col">
                       {product.priceAfterDiscount ? (
-                        <div>
+                        <>
                           <span className="text-red-500 line-through">
                             {product.price} EGP
                           </span>
-                          <span className="text-green-600 font-bold ml-2">
+                          <span className="text-green-600 font-bold">
                             {product.priceAfterDiscount} EGP
                           </span>
-                        </div>
+                        </>
                       ) : (
                         <span className="text-green-600 font-bold">
                           {product.price} EGP
                         </span>
                       )}
-                      <div className="flex items-center text-yellow-500">
-                        <i className="fas fa-star"></i>
-                        <span className="text-gray-700 ml-1">
-                          {product.ratingsAverage}
-                        </span>
-                      </div>
                     </div>
                   </div>
                 </Link>

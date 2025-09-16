@@ -158,7 +158,7 @@ export default function Products() {
                     {product.category.name}
                   </h3>
 
-                  <div className="flex justify-between items-center">
+                  <div className="flex flex-col">
                     <div>
                       {product.priceAfterDiscount ? (
                         <div className="flex items-center">

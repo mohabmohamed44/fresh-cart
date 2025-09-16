@@ -64,9 +64,11 @@ export default function CategoryProducts() {
   }, [categoryId]);
 
   if (isLoading) {
-    return <div className="flex items-center justify-center h-screen">
-      <Bars height="80" width="80" ariaLabel="loading-indicator" />
-    </div>;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Bars height="80" width="80" ariaLabel="loading-indicator" />
+      </div>
+    );
   }
 
   if (error) {
@@ -78,33 +80,31 @@ export default function CategoryProducts() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-gray-50 min-h-screen">
-      <div className="bg-white shadow-lg rounded-lg p-6">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-extrabold text-gray-800 tracking-tight">
-            {categoryName} Collection
-          </h2>
-        </div>
-
-        {products.length === 0 ? (
-          <div className="text-center py-16 bg-gray-100 rounded-lg">
-            <p className="text-2xl text-gray-600 font-semibold">
-              No products found in this category.
-            </p>
-            <p className="text-gray-500 mt-4">
-              We're updating our collection. Check back soon!
-            </p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-1 object-cover">
-            {products.map((product) => (
-              <div className="col-span-1" key={product._id}>
-                <ProductCard product={product} showSubcategory={true} />
-              </div>
-            ))}
-          </div>
-        )}
+    <div className="bg-white rounded-lg p-6">
+      <div className="flex justify-between items-center mb-8">
+        <h2 className="text-2xl font-extrabold text-gray-800 tracking-tight">
+          {categoryName} Collection
+        </h2>
       </div>
+
+      {products.length === 0 ? (
+        <div className="text-center py-16 bg-gray-100 rounded-lg">
+          <p className="text-2xl text-gray-600 font-semibold">
+            No products found in this category.
+          </p>
+          <p className="text-gray-500 mt-4">
+            We're updating our collection. Check back soon!
+          </p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-1 object-cover">
+          {products.map((product) => (
+            <div className="col-span-1" key={product._id}>
+              <ProductCard product={product} showSubcategory={true} />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

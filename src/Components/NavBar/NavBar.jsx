@@ -65,7 +65,7 @@ export default function NavBar() {
           <ul className="flex gap-5">
             <li>
               <Link to="/whishlist">
-                <i className="fas fa-heart cursor-pointer text-red-600"></i>
+                <i class="fas fa-shield-heart fa-1x cursor-pointer hover:text-red-700 hover:transition-colors hover:delay-300 text-red-500"></i>
               </Link>
             </li>
             <li>

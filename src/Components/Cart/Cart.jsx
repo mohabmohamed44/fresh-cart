@@ -77,12 +77,15 @@ export default function Cart() {
       <Helmet>
         <title>Cart</title>
         <meta name="description" content="Cart Page" />
-        <link rel="icon" type="image/svg+xml" href="./src/assets/FrshCart-Icon.ico" />
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href="./src/assets/FrshCart-Icon.ico"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta charSet="utf-8" />  
+        <meta charSet="utf-8" />
       </Helmet>
-      <h2 className="text-3xl text-center mt-12 mb-10">Cart</h2>
-      <h2 className="text-3xl text-center mb-10 font-medium">
+      <h2 className="text-3xl text-center mb-10 font-medium mt-2">
         Number of Cart Items: {numOfCartItems}
       </h2>
       <h2 className="text-2xl text-center mb-10 font-medium">
@@ -90,7 +93,11 @@ export default function Cart() {
       </h2>
       {productsCart?.length === 0 ? (
         <div className="text-center mt-10 flex items-center justify-center flex-col">
-          <img src={ghost} className="w-1/3 max-w-md" alt="ghost-img" />
+          <img
+            src={ghost}
+            className="w-1/3 max-w-md animate-pulse"
+            alt="ghost-img"
+          />
           <p className="text-xl font-medium mb-12">Your cart is empty.</p>
         </div>
       ) : (
@@ -209,21 +216,25 @@ export default function Cart() {
           </table>
         </div>
       )}
-      <div className="flex flex-col sm:flex-row gap-2 justify-between w-full">
-        <Link to="/payment" className="flex-grow basis-1/2">
-          <button className="h-14 w-full bg-green-500 text-white px-4 py-1.5 rounded hover:bg-green-600 transition-colors text-lg">
-            <i className="mr-4 fa-solid fa-cart-shopping"></i>
-            Go to CheckOut
+      {productsCart?.length > 0 && (
+        <>
+          <div className="flex flex-col sm:flex-row gap-2 justify-between w-full">
+            <Link to="/payment" className="flex-grow basis-1/2">
+              <button className="h-14 w-full bg-green-500 text-white px-4 py-1.5 rounded hover:bg-green-600 transition-colors text-lg">
+                <i className="mr-4 fa-solid fa-cart-shopping"></i>
+                Go to CheckOut
+              </button>
+            </Link>
+          </div>
+          <button
+            className="h-14 mt-5 bg-red-500 text-white px-4 py-1.5 rounded hover:bg-red-600 transition-colors text-lg w-full"
+            onClick={() => deleteUserCart()}
+          >
+            <i className="mr-4 fa-solid fa-trash"></i>
+            Delete Cart
           </button>
-        </Link>
-      </div>
-      <button
-        className="h-14 mt-5 bg-red-500 text-white px-4 py-1.5 rounded hover:bg-red-600 transition-colors text-lg w-full"
-        onClick={() => deleteUserCart()}
-      >
-        <i className="mr-4 fa-solid fa-trash"></i>
-        Delete Cart
-      </button>
+        </>
+      )}
     </>
   );
 }

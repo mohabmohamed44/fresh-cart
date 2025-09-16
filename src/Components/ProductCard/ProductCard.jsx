@@ -66,7 +66,7 @@ export default function ProductCard({ product, showSubcategory }) {
         <div className="w-full lg:w-full xl:w-full p-2">
             <div className="bg-white shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105">
                 <Link to={`/productDetails/${product._id}/${product.category.name}`}>
-                    <img className="w-full h-48 object-contain" src={product.imageCover} alt={product.title} />
+                    <img className="w-full h-full object-cover" src={product.imageCover} alt={product.title} />
                 </Link>
                 <div className="p-4">
                     <div className="flex justify-between items-center mb-2">
@@ -74,9 +74,9 @@ export default function ProductCard({ product, showSubcategory }) {
                             <div className="text-sm text-gray-500 font-medium">
                                 {showSubcategory ? product.subcategory[0]?.name : product.category.name}
                             </div>
-                            <h3 className="text-lg font-semibold text-gray-800 truncate">
+                            <h5 className="text-md font-semibold text-gray-800 truncate">
                                 {product.title.split(' ').slice(0, 2).join(' ')}
-                            </h3>
+                            </h5>
                         </div>
                         <i
                             className={`fa-solid fa-heart text-lg cursor-pointer transition-colors ${
@@ -102,7 +102,7 @@ export default function ProductCard({ product, showSubcategory }) {
                         onClick={() => addProductToCart(product._id)}
                         className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
                     >
-                        <i className="fa-solid fa-cart-plus mr-2"></i>
+                        <i className="fa-solid fa-cart-plus mr-2  animate-bounce"></i>
                         Add to Cart
                     </button>
                 </div>

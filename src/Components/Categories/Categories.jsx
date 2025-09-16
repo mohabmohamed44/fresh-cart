@@ -61,8 +61,8 @@ export default function Categories() {
           <meta name="author" content="Mohab Mohammed" />
       </Helmet>
       <h2 className={Style.categories_heading}>Categories</h2>
-      <div className="max-w-screen-lg mx-auto px-4 py-6">
-        <div className="flex flex-wrap justify-center gap-4">
+      <div className="max-w-screen-lg mx-auto px-6 py-7">
+        <div className="flex flex-wrap justify-center gap-3">
           {categories.map((category) => (
             <Link
               key={category._id}
@@ -72,7 +72,7 @@ export default function Categories() {
               <img
                 src={category.image}
                 alt={category.name}
-                className="w-full h-full rounded-md object-cover"
+                className="w-full h-full rounded-md object-cover mb-2"
               />
               <p className="mt-2 text-lg font-medium">{category.name}</p>
             </Link>
