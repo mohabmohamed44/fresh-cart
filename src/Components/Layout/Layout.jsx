@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import Navbar from "../../Components/NavBar/NavBar";
 import { Outlet, useLocation } from "react-router-dom";
@@ -27,3 +28,21 @@ export default function Layout() {
     </>
   );
 }
+=======
+import React from "react";
+import Navbar from "../../Components/NavBar/NavBar";
+import { Outlet } from "react-router-dom";
+import Footer from "../../Components/Footer/Footer";
+
+export default function Layout() {
+  return (
+    <>
+      <Navbar />
+      <div className="container py-10 px-3 md:px-2 mx-auto max-w-screen-xl overflow-x-hidden">
+        <Outlet />
+      </div>
+      <Footer />
+    </>
+  );
+}
+>>>>>>> b3d621f (safe)
